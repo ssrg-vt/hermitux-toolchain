@@ -38,7 +38,7 @@ fi
 if [ ! -d "tmp/binutils" ]; then
 mkdir -p tmp/binutils
 cd tmp/binutils
-../../binutils/configure --target=$TARGET --prefix=$PREFIX --with-sysroot --disable-multilib --disable-shared --disable-nls --disable-gdb --disable-libdecnumber --disable-readline --disable-sim --disable-libssp --enable-tls --enable-lto --enable-plugin && make $NJOBS && make install
+../../binutils/configure --target=$TARGET --prefix=$PREFIX --with-sysroot --disable-multilib --disable-shared --disable-nls --disable-gdb --disable-libdecnumber --disable-readline --disable-sim --disable-libssp --enable-tls --enable-lto --enable-plugin && make $NJOBS CFLAGS=-Wno-format-overflow && make install
 cd -
 fi
 
